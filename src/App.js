@@ -1,25 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Fragment, useState, useEffect } from 'react';
+import Form from './components/Form';
+import Axios from 'axios';
 
 function App() {
+//states
+const [song, setSong] = useState({});
+const [lyric, setLyric] = useState('');
+
+//distructuring
+const { artist, songTitle } = song;
+
+useEffect(() => {
+  const lyricQuery = async () => {
+    if(Object.keys(song).length === 0) return;
+    const url = `https://api.lyrics.ovh/v1/${artist}/${songTitle}`;
+    const response = await Axios(url);
+    setLyric(response.data.lyrics)
+  };
+  lyricQuery();
+}, [song])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Fragment>
+      <Form setSong={setSong}/>
+    </Fragment>
   );
 }
 
