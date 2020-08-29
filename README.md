@@ -1,3 +1,22 @@
+# ReactJS APP practice - Lyrics/Info Browser 
+
+### Simple React App
+
+## Task Description
+
+This is a simple app build on reactjs, that queries twos different API's (https://lyricsovh.docs.apiary.io/# - https://www.theaudiodb.com/api_guide.php) to return lyrics and artist info: This is just a practice for using react hooks, for api calls throught Promises and axios.
+
+#### Enum Tech used
+
+* HTML5
+* CSS3
+* JS
+* ReacJS
+* Bootstrap 4
+* Axios
+
+<hr>
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
